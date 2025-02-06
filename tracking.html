@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking - FitPro</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-lg z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-purple-600 flex items-center gap-2">
+                        <i class="fas fa-dumbbell"></i>
+                        FitPro
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="professionals.html" class="nav-link">Professionals</a>
+                    <a href="community.html" class="nav-link">Community</a>
+                    <a href="tracking.html" class="nav-link">Progress</a>
+                    <a href="diet-plan.html" class="nav-link">Diet Plans</a>
+                    <button id="loginBtn" class="btn-primary" onclick="window.location.href='login.html'">Login</button>
+                </div>
+                <button class="md:hidden menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Tracking Dashboard -->
+    <div class="pt-20">
+        <div class="container mx-auto px-6 py-8">
+            <h1 class="text-3xl font-bold mb-8">Progress Tracking</h1>
+            
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-gray-500 text-sm mb-2">Current Weight</h3>
+                    <div class="flex items-end">
+                        <span class="text-3xl font-bold">70</span>
+                        <span class="text-sm text-gray-500 ml-1">kg</span>
+                    </div>
+                    <span class="text-green-500 text-sm">↑ 2.3% vs last week</span>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-gray-500 text-sm mb-2">Body Fat</h3>
+                    <div class="flex items-end">
+                        <span class="text-3xl font-bold">18</span>
+                        <span class="text-sm text-gray-500 ml-1">%</span>
+                    </div>
+                    <span class="text-red-500 text-sm">↓ 1.2% vs last week</span>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-gray-500 text-sm mb-2">Muscle Mass</h3>
+                    <div class="flex items-end">
+                        <span class="text-3xl font-bold">35</span>
+                        <span class="text-sm text-gray-500 ml-1">kg</span>
+                    </div>
+                    <span class="text-green-500 text-sm">↑ 0.5% vs last week</span>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-gray-500 text-sm mb-2">Daily Calories</h3>
+                    <div class="flex items-end">
+                        <span class="text-3xl font-bold">2,450</span>
+                        <span class="text-sm text-gray-500 ml-1">kcal</span>
+                    </div>
+                    <span class="text-gray-500 text-sm">Target: 2,500 kcal</span>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Weight Progress</h3>
+                    <canvas id="weightChart" height="300"></canvas>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Body Composition</h3>
+                    <canvas id="compositionChart" height="300"></canvas>
+                </div>
+            </div>
+
+            <!-- Workout Log -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-bold mb-4">Recent Workouts</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Workout Type</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Calories Burned</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">2025-03-15</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Weight Training</td>
+                                <td class="px-6 py-4 whitespace-nowrap">45 min</td>
+                                <td class="px-6 py-4 whitespace-nowrap">320 kcal</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">2025-03-14</td>
+                                <td class="px-6 py-4 whitespace-nowrap">Cardio</td>
+                                <td class="px-6 py-4 whitespace-nowrap">30 min</td>
+                                <td class="px-6 py-4 whitespace-nowrap">250 kcal</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Goals Section -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4">Fitness Goals</h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700">Weight Goal (75kg)</span>
+                            <span class="text-sm font-medium text-gray-700">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700">Body Fat (15%)</span>
+                            <span class="text-sm font-medium text-gray-700">60%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-gray-700">Muscle Mass (40kg)</span>
+                            <span class="text-sm font-medium text-gray-700">70%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-purple-600 h-2 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="tracking.js"></script>
+</body>
+</html>

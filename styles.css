@@ -1,0 +1,161 @@
+/* Custom Properties */
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #4f46e5;
+    --accent-color: #818cf8;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Base Styles */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+.nav-link {
+    @apply text-gray-600 hover:text-purple-600 transition-colors duration-300;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Buttons */
+.btn-primary {
+    @apply bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 
+           transition-all duration-300 transform hover:scale-105 focus:outline-none 
+           focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50;
+}
+
+.btn-primary-large {
+    @apply btn-primary text-lg py-3 px-8;
+}
+
+.btn-secondary-large {
+    @apply bg-white text-purple-600 border-2 border-purple-600 px-8 py-3 rounded-full 
+           hover:bg-purple-50 transition-all duration-300 transform hover:scale-105 
+           focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 text-lg;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Cards */
+.professional-card {
+    @apply bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105;
+}
+
+.tracking-card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300;
+}
+
+/* Modal Styles */
+.modal {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+}
+
+.modal-content {
+    @apply bg-white rounded-xl p-8 max-w-md w-full mx-4;
+}
+
+/* Chat Interface */
+.chat-container {
+    @apply bg-white rounded-xl shadow-lg w-80 h-96 flex flex-col;
+}
+
+.chat-header {
+    @apply bg-purple-600 text-white p-4 rounded-t-xl flex justify-between items-center;
+}
+
+.chat-messages {
+    @apply flex-1 p-4 overflow-y-auto;
+}
+
+.chat-input {
+    @apply p-4 border-t border-gray-200 flex gap-2;
+}
+
+/* Progress Charts */
+canvas {
+    @apply w-full h-64;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* 3D Effects */
+.card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+    transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}

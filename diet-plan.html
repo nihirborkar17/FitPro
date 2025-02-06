@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Plan - FitPro</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-lg z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-purple-600 flex items-center gap-2">
+                        <i class="fas fa-dumbbell"></i>
+                        FitPro
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="professionals.html" class="nav-link">Professionals</a>
+                    <a href="community.html" class="nav-link">Community</a>
+                    <a href="tracking.html" class="nav-link">Progress</a>
+                    <a href="diet-plan.html" class="nav-link">Diet Plans</a>
+                    <button id="loginBtn" class="btn-primary" onclick="window.location.href='login.html'">Login</button>
+                </div>
+                <button class="md:hidden menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Diet Plan Dashboard -->
+    <div class="pt-20">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold">Your Diet Plan</h1>
+                <button class="btn-primary" id="generatePlanBtn">Generate New Plan</button>
+            </div>
+
+            <!-- Macro Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-gray-500 text-sm mb-2">Daily Calories</h3>
+                    <div class="flex items-end">
+                        <span class="text-3xl font-bold">2,500</span>
+                        <span class="text-sm text-gray-500 ml-1">kcal</span>
+                    </div>
+                    <div class="mt-2 w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-gray-500 text-sm mb-2">Protein</h3>
+                    <div class="flex items-end">
+                        <span class="text-3xl font-bold">180</span>
+                        <span class="text-sm text-gray-500 ml-1">g</span>
+                    </div>
+                    <div class="mt-2 w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-gray-500 text-sm mb-2">Carbs</h3>
+                    <div class="flex items-end">
+                        <span <boltAction type="file" filePath="diet-plan.html">                        <span class="text-3xl font-bold">250</span>
+                        <span class="text-sm text-gray-500 ml-1">g</span>
+                    </div>
+                    <div class="mt-2 w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-gray-500 text-sm mb-2">Fats</h3>
+                    <div class="flex items-end">
+                        <span class="text-3xl font-bold">70</span>
+                        <span class="text-sm text-gray-500 ml-1">g</span>
+                    </div>
+                    <div class="mt-2 w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-red-500 h-2 rounded-full" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meal Plan -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-6">Today's Meal Plan</h2>
+                <div class="space-y-6">
+                    <!-- Breakfast -->
+                    <div class="meal-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold">Breakfast</h3>
+                            <span class="text-sm text-gray-500">7:00 AM - 650 kcal</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="breakfast1">
+                                <label for="breakfast1" class="ml-3">Oatmeal with berries and honey (300g)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="breakfast2">
+                                <label for="breakfast2" class="ml-3">Greek yogurt (200g)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="breakfast3">
+                                <label for="breakfast3" class="ml-3">Banana (1 medium)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lunch -->
+                    <div class="meal-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold">Lunch</h3>
+                            <span class="text-sm text-gray-500">12:30 PM - 750 kcal</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="lunch1">
+                                <label for="lunch1" class="ml-3">Grilled chicken breast (200g)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="lunch2">
+                                <label for="lunch2" class="ml-3">Brown rice (150g)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="lunch3">
+                                <label for="lunch3" class="ml-3">Mixed vegetables (200g)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dinner -->
+                    <div class="meal-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold">Dinner</h3>
+                            <span class="text-sm text-gray-500">7:00 PM - 600 kcal</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="dinner1">
+                                <label for="dinner1" class="ml-3">Salmon fillet (180g)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="dinner2">
+                                <label for="dinner2" class="ml-3">Sweet potato (200g)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="dinner3">
+                                <label for="dinner3" class="ml-3">Green salad with olive oil (150g)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Snacks -->
+                    <div class="meal-card">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-semibold">Snacks</h3>
+                            <span class="text-sm text-gray-500">Throughout day - 500 kcal</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="snack1">
+                                <label for="snack1" class="ml-3">Almonds (30g)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="snack2">
+                                <label for="snack2" class="ml-3">Protein shake (1 serving)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="snack3">
+                                <label for="snack3" class="ml-3">Apple with peanut butter (1 medium apple, 15g PB)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Water Tracking -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-6">Water Intake</h2>
+                <div class="flex items-center space-x-4">
+                    <div class="flex-1">
+                        <div class="w-full bg-gray-200 rounded-full h-4">
+                            <div class="bg-blue-500 h-4 rounded-full" style="width: 60%" id="waterProgress"></div>
+                        </div>
+                    </div>
+                    <span class="text-lg font-semibold" id="waterCount">1.8L / 3L</span>
+                    <button class="btn-primary" id="addWater">
+                        <i class="fas fa-plus mr-2"></i>Add 250ml
+                    </button>
+                </div>
+            </div>
+
+            <!-- Supplements -->
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-6">Daily Supplements</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="flex items-center p-4 border rounded-lg">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="supplement1">
+                        <label for="supplement1" class="ml-3">
+                            <span class="block font-semibold">Multivitamin</span>
+                            <span class="text-sm text-gray-500">1 tablet with breakfast</span>
+                        </label>
+                    </div>
+                    <div class="flex items-center p-4 border rounded-lg">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="supplement2">
+                        <label for="supplement2" class="ml-3">
+                            <span class="block font-semibold">Omega-3</span>
+                            <span class="text-sm text-gray-500">2 capsules with dinner</span>
+                        </label>
+                    </div>
+                    <div class="flex items-center p-4 border rounded-lg">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-purple-600" id="supplement3">
+                        <label for="supplement3" class="ml-3">
+                            <span class="block font-semibold">Protein Powder</span>
+                            <span class="text-sm text-gray-500">1 scoop post-workout</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="diet-plan.js"></script>
+</body>
+</html>
