@@ -31,6 +31,19 @@
                 <button class="md:hidden menu-btn">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
+                <div class="mobile-menu hidden md:hidden">
+                    <a href="index.html" class="block py-2 px-4 text-sm">Home</a>
+                    <a href="professionals.html" class="block py-2 px-4 text-sm">Professionals</a>
+                    <a href="community.html" class="block py-2 px-4 text-sm">Community</a>
+                    <a href="tracking.html" class="block py-2 px-4 text-sm">Progress</a>
+                    <a href="diet-plan.html" class="block py-2 px-4 text-sm">Diet Plans</a>
+                    <button id="loginBtnMobile" class="block py-2 px-4 text-sm btn-primary" onclick="window.location.href='login.html'">Login</button>
+                </div>
+                <script>
+                    document.querySelector('.menu-btn').addEventListener('click', () => {
+                        document.querySelector('.mobile-menu').classList.toggle('hidden');
+                    });
+                </script>
             </div>
         </div>
     </nav>
